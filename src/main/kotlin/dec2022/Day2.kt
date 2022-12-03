@@ -3,7 +3,7 @@ package dec2022
 import Puzzle
 
 /**
- * https://adventofcode.com/2022/day/1
+ * https://adventofcode.com/2022/day/2
  */
 class Day2 : Puzzle(2022, 2) {
 
