@@ -17,6 +17,11 @@ internal object Tests {
         Day1().run()
     }
 
+    @Test
+    fun day2() {
+        Day2().run()
+    }
+
     @AfterAll
     @JvmStatic
     fun after() {

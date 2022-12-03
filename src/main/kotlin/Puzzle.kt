@@ -6,7 +6,7 @@ abstract class Puzzle(
     ) : Runnable {
 
     override fun run() {
-        println("Puzzle Day $day\n")
+        println("\nPuzzle Day $day")
         solve()
     }
 
