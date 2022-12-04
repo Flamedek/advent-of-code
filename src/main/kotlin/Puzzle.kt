@@ -1,24 +1,10 @@
 import java.io.File
 
-abstract class Puzzle(
-    private val year: Int,
-    private val day: Int
-    ) : Runnable {
+abstract class Puzzle(val year: Int, val day: Int) {
 
-    override fun run() {
-        println("\nPuzzle Day $day")
-        solve()
-    }
+    abstract fun partOne(input: String): Any
 
-    abstract fun solve()
-
-    protected fun printOne(result: Any) {
-        println("Answer 1: $result")
-    }
-
-    protected fun printTwo(result: Any) {
-        println("Answer 2: $result")
-    }
+    open fun partTwo(input: String): Any = TODO("Not yet implemented")
 
     protected fun readInput(path: String): String {
         return File("./src/main/resources/input/$year")

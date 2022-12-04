@@ -7,15 +7,13 @@ import Puzzle
  */
 class Day2 : Puzzle(2022, 2) {
 
-    override fun solve() {
-        val input = readInput("day2.txt")
-        val lines = input.lines()
-
-        printOne(part1(lines))
-        printTwo(part2(lines))
+    override fun partOne(input: String): Any {
+        return input.lines().sumOf(::pointsForRoundPart1)
     }
 
-    private fun part1(list: List<String>) = list.sumOf(::pointsForRoundPart1)
+    override fun partTwo(input: String): Any {
+        return input.lines().sumOf(::pointsForRoundPart2)
+    }
 
     private fun pointsForRoundPart1(line: String): Int {
         val them = line.first() - 'A'
@@ -29,8 +27,6 @@ class Day2 : Puzzle(2022, 2) {
 
         return result + (you + 1)
     }
-
-    private fun part2(list: List<String>) =  list.sumOf(::pointsForRoundPart2)
 
     private fun pointsForRoundPart2(line: String): Int {
         val them = line.first() - 'A'

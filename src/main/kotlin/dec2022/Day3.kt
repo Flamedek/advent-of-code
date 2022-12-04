@@ -7,25 +7,21 @@ import Puzzle
  */
 class Day3 : Puzzle(2022, 3) {
 
-    override fun solve() {
-        val input = readInput("day3.txt")
-        val lines = input.lines()
-
-        printOne(part1(lines))
-        printTwo(part2(lines))
+    override fun partOne(input: String): Any {
+        return input.lineSequence()
+            .map(::findSharedItemPerLine)
+            .map(::scoreForItem)
+            .sum()
     }
 
-    private fun part1(lines: List<String>) = lines.asSequence()
-        .map(::findSharedItemPerLine)
-        .map(::scoreForItem)
-        .sum()
-
-    private fun part2(lines: List<String>) = lines.asSequence()
-        .chunked(3)
-        .filter { it.size == 3 }
-        .map(::findSharedItemInGroups)
-        .map(::scoreForItem)
-        .sum()
+    override fun partTwo(input: String): Any {
+        return input.lineSequence()
+            .chunked(3)
+            .filter { it.size == 3 }
+            .map(::findSharedItemInGroups)
+            .map(::scoreForItem)
+            .sum()
+    }
 
     private fun findSharedItemPerLine(line: String): Char {
         val parts = line.toList().chunked(line.length / 2)

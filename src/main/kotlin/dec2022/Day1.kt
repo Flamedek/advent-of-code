@@ -7,17 +7,15 @@ import Puzzle
  */
 class Day1 : Puzzle(2022, 1) {
 
-    override fun solve() {
-        val input = readInput("day1.txt")
+    override fun partOne(input: String): Any {
         val list = groupNumbers(input)
-
-        printOne(part1(list))
-        printTwo(part2(list))
+        return list.max()
     }
 
-    private fun part1(list: List<Int>) = list.max()
-
-    private fun part2(list: List<Int>) = list.sortedDescending().take(3).sum()
+    override fun partTwo(input: String): Any {
+        val list = groupNumbers(input)
+        return list.sortedDescending().take(3).sum()
+    }
 
     private fun groupNumbers(input: String) = buildList {
         input.lines().fold(0) { acc, line ->
