@@ -5,6 +5,7 @@ import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import java.io.File
+import kotlin.test.assertEquals
 
 internal object Tests {
 
@@ -24,6 +25,16 @@ internal object Tests {
 
     @Test
     fun day3() = runWithResource(Day3())
+
+    @Test
+    fun day4() {
+        val puzzle = Day4()
+        val input = "2-4,6-8\n2-3,4-5\n5-7,7-9\n2-8,3-7\n6-6,4-6\n2-6,4-8"
+        assertEquals(2, puzzle.partOne(input))
+        assertEquals(4, puzzle.partTwo(input))
+
+        runWithResource(puzzle)
+    }
 
     @AfterAll
     @JvmStatic
