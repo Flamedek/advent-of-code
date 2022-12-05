@@ -1,21 +1,10 @@
 package dec2022
 
-import Puzzle
-import org.junit.jupiter.api.AfterAll
-import org.junit.jupiter.api.BeforeAll
+import TestRunner
 import org.junit.jupiter.api.Test
-import java.io.File
 import kotlin.test.assertEquals
 
-internal object Tests {
-
-    @BeforeAll
-    @JvmStatic
-    fun before() {
-        println("\n${"-".repeat(20)}")
-        println("Advent Of Code 2022")
-        println("-".repeat(20))
-    }
+internal class Tests : TestRunner() {
 
     @Test
     fun day1() = runWithResource(Day1())
@@ -36,38 +25,16 @@ internal object Tests {
         runWithResource(puzzle)
     }
 
-    @AfterAll
-    @JvmStatic
-    fun after() {
-        println("\n${"-".repeat(20)}\n")
-    }
+    @Test
+    fun day5() {
+        val puzzle = Day5()
+        val input = "    [D]    \n[N] [C]    \n[Z] [M] [P]\n 1   2   3 \n" +
+                "\nmove 1 from 2 to 1\nmove 3 from 1 to 3\nmove 2 from 2 to 1\nmove 1 from 1 to 2"
 
-    private fun runWithResource(
-        puzzle: Puzzle,
-        resource: String = "day${puzzle.day}.txt",
-        sourceSet: String? = "main"
-    ) {
-        val input = File("./src/$sourceSet/resources/input/${puzzle.year}/$resource").readText()
-        runWithInput(puzzle, input)
-    }
+        assertEquals("CMZ", puzzle.partOne(input))
+        assertEquals("MCD", puzzle.partTwo(input))
 
-    private fun runWithInput(puzzle: Puzzle, input: String = "") {
-        println("\nPuzzle Day ${puzzle.day}")
-
-        val one = try {
-            puzzle.partOne(input)
-        } catch (e: NotImplementedError) {
-            "Not yet implemented"
-        }
-
-        val two = try {
-            puzzle.partTwo(input)
-        } catch (e: NotImplementedError) {
-            "Not yet implemented"
-        }
-
-        println("Answer 1: $one")
-        println("Answer 2: $two")
+        runWithResource(puzzle)
     }
 
 }
