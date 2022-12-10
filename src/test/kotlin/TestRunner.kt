@@ -4,26 +4,25 @@ import java.io.File
 
 open class TestRunner {
 
-    fun runWithResource(
-        puzzle: Puzzle,
-        resource: String = "day${puzzle.day}.txt",
+    fun Puzzle.runWithResource(
+        resource: String = "day${day}.txt",
         sourceSet: String? = "main"
     ) {
-        val input = File("./src/$sourceSet/resources/input/${puzzle.year}/$resource").readText()
-        runWithInput(puzzle, input)
+        val input = File("./src/$sourceSet/resources/input/$year/$resource").readText()
+        this.runWithInput(input)
     }
 
-    fun runWithInput(puzzle: Puzzle, input: String = "") {
-        println("\nPuzzle Day ${puzzle.day}")
+    fun Puzzle.runWithInput(input: String) {
+        println("\nPuzzle Day $day")
 
         val one = try {
-            puzzle.partOne(input)
+            partOne(input)
         } catch (e: NotImplementedError) {
             "Not yet implemented"
         }
 
         val two = try {
-            puzzle.partTwo(input)
+            partTwo(input)
         } catch (e: NotImplementedError) {
             "Not yet implemented"
         }
