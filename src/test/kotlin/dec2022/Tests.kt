@@ -37,4 +37,20 @@ internal class Tests : TestRunner() {
         runWithResource(puzzle)
     }
 
+    @Test
+    fun day6() {
+        val puzzle = Day6()
+
+        assertEquals(7, puzzle.partOne("mjqjpqmgbljsphdztnvjfqwrcgsmlb"))
+        assertEquals(5, puzzle.partOne("bvwbjplbgvbhsrlpgdmjqwftvncz"))
+        assertEquals(10, puzzle.partOne("nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg"))
+
+        assertEquals(19, puzzle.partTwo("mjqjpqmgbljsphdztnvjfqwrcgsmlb"))
+        assertEquals(23, puzzle.partTwo("bvwbjplbgvbhsrlpgdmjqwftvncz"))
+        assertEquals(29, puzzle.partTwo("nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg"))
+
+        runWithResource(puzzle)
+    }
+
+
 }
