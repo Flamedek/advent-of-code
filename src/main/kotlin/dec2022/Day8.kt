@@ -81,10 +81,7 @@ class Day8 : Puzzle(2022, 8) {
     private fun getScenicScore(field: Array<Array<Int>>, x: Int, y: Int): Int {
         val maxX = field[0].lastIndex
         val maxY = field.lastIndex
-//        if (x == 0 || x == maxX || y == 0 || y == maxY) {
-//            // outer edges
-//            return 0
-//        }
+
         val height = field[x][y]
         val scores = Array(4) { 0 }
         // left
