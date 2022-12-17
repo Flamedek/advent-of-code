@@ -18,6 +18,7 @@ internal class Tests : TestRunner() {
     @Test
     fun day4() = with(Day4()) {
         val input = "2-4,6-8\n2-3,4-5\n5-7,7-9\n2-8,3-7\n6-6,4-6\n2-6,4-8"
+
         assertEquals(2, partOne(input))
         assertEquals(4, partTwo(input))
 
@@ -76,6 +77,16 @@ internal class Tests : TestRunner() {
 
         assertEquals(95437L, partOne(input))
         assertEquals(24933642L, partTwo(input))
+
+        runWithResource()
+    }
+
+    @Test
+    fun day8() = with(Day8()) {
+        val input = "30373\n25512\n65332\n33549\n35390"
+
+        assertEquals(21, partOne(input))
+        assertEquals(8, partTwo(input))
 
         runWithResource()
     }
