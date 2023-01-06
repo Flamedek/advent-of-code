@@ -38,7 +38,7 @@ open class TestRunner {
         null
     }
 
-    fun Puzzle.testInput() = readInput(sourceSet = "test")!!
+    fun Puzzle.readTestInput() = readInput(sourceSet = "test")!!
 
     companion object {
 
