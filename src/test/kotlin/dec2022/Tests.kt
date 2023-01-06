@@ -98,4 +98,17 @@ internal class Tests : TestRunner() {
         runWithResource()
     }
 
+    @Test
+    fun day10() = with(Day10()) {
+        val input = testInput()
+        assertEquals(13140, partOne(input))
+        assertEquals("\n##..##..##..##..##..##..##..##..##..##..\n" +
+                "###...###...###...###...###...###...###.\n" +
+                "####....####....####....####....####....\n" +
+                "#####.....#####.....#####.....#####.....\n" +
+                "######......######......######......####\n" +
+                "#######.......#######.......#######.....\n", partTwo(input))
+        runWithResource()
+    }
+
 }

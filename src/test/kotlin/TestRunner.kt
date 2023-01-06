@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
 import java.io.File
+import java.io.IOException
 
 open class TestRunner {
 
@@ -8,11 +9,8 @@ open class TestRunner {
         resource: String = "day${day}.txt",
         sourceSet: String? = "main"
     ) {
-        val input = File("./src/$sourceSet/resources/input/$year/$resource").readText()
-        this.runWithInput(input)
-    }
+        val input = readInput(resource, sourceSet) ?: return
 
-    fun Puzzle.runWithInput(input: String) {
         println("\nPuzzle Day $day")
 
         val one = try {
@@ -30,6 +28,17 @@ open class TestRunner {
         println("Answer 1: $one")
         println("Answer 2: $two")
     }
+
+    fun Puzzle.readInput(
+        resource: String = "day${day}.txt",
+        sourceSet: String? = "main"
+    ) = try {
+        File("./src/$sourceSet/resources/input/$year/$resource").readText()
+    } catch (e: IOException) {
+        null
+    }
+
+    fun Puzzle.testInput() = readInput(sourceSet = "test")!!
 
     companion object {
 
